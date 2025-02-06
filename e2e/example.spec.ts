@@ -23,5 +23,3 @@ test.describe('navigation', () => {
     await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
   });
 });
-
-
