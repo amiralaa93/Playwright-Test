@@ -37,4 +37,4 @@ jobs:
         body: The Playwright tests have failed. Please check the logs for more information.
         to: ${{ secrets.EMAIL_USERNAME }}
         from: ${{ secrets.EMAIL_USERNAME }}
-        attachments: playwright-report/
+        attachments: playwright-report.zip
