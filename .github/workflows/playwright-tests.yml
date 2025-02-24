@@ -26,14 +26,14 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Send Email Notification on Failure
-      if: always()
+      if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: ${{ secrets.SMTP_SERVER }}
         server_port: ${{ secrets.SMTP_PORT }}
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: Playwright Tests Failed
+        subject: Playwright Tests Failed 🚨
         body: The Playwright tests have failed. Please check the logs for more information.
         to: ${{ secrets.EMAIL_USERNAME }}
         from: ${{ secrets.EMAIL_USERNAME }}
