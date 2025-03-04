@@ -2,7 +2,15 @@
   "name": "playwright-test",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:e2e": "npx playwright test e2e/",
+    "test:e2e:chrome": "npx playwright test e2e/ --project=chromium",
+    "test:e2e:dev": "npx playwright test tests-examples/ --project=chromium --headed --retries=0",
+    "test:e2e:smoke": "npx playwright test tests-examples/ --grep @smoke --project=chromium",
+    "test:e2e:non-smoke": "npx playwright test tests-examples/ --grep-invert @smoke --project=firefox",
+    "test:visual:acme": "npx playwright test example-applitools.spec.ts --project=chromium",
+    "test:visual:playwright": "npx playwright test example3.spec.ts --project=all-browsers-and-tests"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,5 +18,10 @@
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.1"
+  },
+  "dependencies": {
+    "@applitools/eyes-playwright": "^1.36.3",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.50.1"
   }
 }
